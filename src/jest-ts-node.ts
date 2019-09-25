@@ -6,12 +6,25 @@ export default class DummyClass {
 
     }
 
-    giveMeAPromise(name: String): Promise<String> {
+    giveMeAPromise(name: string): Promise<string> {
         return new Promise((resolve, reject) => {
             if(!name) return reject('Provide a name')
             setTimeout(() => {
                 resolve(name)
             }, 1000)
         })
+    }
+
+    giveMeAPromise2(name: string): Promise<string> {
+        return new Promise((resolve, reject) => {
+            if(!name) return reject('Provide a name')
+            setTimeout(() => {
+                resolve(name)
+            }, 1000)
+        })
+    }
+
+    async someCoolMethod() {
+        const value = await this.giveMeAPromise("0");
     }
 }
